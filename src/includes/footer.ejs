@@ -1,0 +1,175 @@
+{{# user }}
+{{#isPremium}}
+<footer class="footer-premium">
+    {{/isPremium}}
+    {{^isPremium}}
+    <footer>
+        {{/isPremium}}
+        {{/ user }}
+        {{^ user }}
+        <footer>
+            {{/ user }}
+
+            <div class="footer-contents">
+                <p class="lead">
+                    プレミアム会員
+                    <span class="lead_small">なら</span>
+                    <br class="sp-view">
+                    <span class="lead_underline lead_jump" id="footer-premium">限定動画</span>
+                    <span class="lead_small">&</span>
+                    <span class="lead_underline lead_jump" id="footer-minogashi">見逃し配信番組</span>
+                    <span class="lead_small">が</span>
+                    視聴できる！
+                </p>
+
+                {{#user}}
+                {{^isPremium}}
+                <!-- ログインかつ一般 -->
+                <div class="btn-premium">
+                    <a href="https://account.nicovideo.jp/premium/register?sec=premium_contents_footer">
+                        <p class="regist">プレミアム会員登録</p>
+                    </a>
+                </div>
+                {{/isPremium}}
+                {{/user}}
+                <!-- 非ログイン -->
+                {{^user}}
+                <div class="btn-premium">
+                    <a href="https://account.nicovideo.jp/premium/register?sec=premium_contents_footer">
+                        <p class="regist">プレミアム会員登録</p>
+                    </a>
+                </div>
+                {{/user}}
+
+                <ul class="sns">
+                    <li>
+                        <a class="sns-twitter"
+                            href="https://twitter.com/share?url=https://site.nicovideo.jp/premium_contents/&text=%E3%83%8B%E3%82%B3%E3%83%8B%E3%82%B3%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%A0%E4%BC%9A%E5%93%A1%E3%81%AA%E3%82%89%E3%80%81%E9%99%90%E5%AE%9A%E5%8B%95%E7%94%BB%E3%82%84%E8%A6%8B%E9%80%83%E3%81%97%E9%85%8D%E4%BF%A1%E7%95%AA%E7%B5%84%E3%81%AA%E3%81%A9%E6%A7%98%E3%80%85%E3%81%AA%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%81%8C%E8%A6%96%E8%81%B4%E3%81%A7%E3%81%8D%E3%82%8B&hashtags=ニコニコ動画,ニコニコ生放送,プレミアム特典コンテンツ"
+                            target="_blank" rel="noopener">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="sns-facebook"
+                            href="https://www.facebook.com/share.php?u=https://site.nicovideo.jp/premium_contents/"
+                            onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="sns-line"
+                            href="https://timeline.line.me/social-plugin/share?url=https%3a%2f%2fsite%2enicovideo%2ejp%2fpremium_contents%2f"
+                            target="_blank" rel="noopener">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-link pc-view">
+                <p class="footer-link-category">ニコニコについて</p>
+                <ul class="footer-link-list">
+                    <li>
+                        <a href="https://site.nicovideo.jp/service_list/?ref=footer">サービス一覧</a>
+                    </li>
+                    <li>
+                        <a href="https://www.nicovideo.jp/rss?ref=footer">RSS（更新情報）一覧</a>
+                    </li>
+                    <li>
+                        <a href="https://license-search.nicovideo.jp/">動画・生放送に使用できる音源の検索</a>
+                    </li>
+                    <li>
+                        <a href="https://ex.nicovideo.jp/base/declaration?ref=footer">宣言</a>
+                    </li>
+                    <li>
+                        <a href="https://site.nicovideo.jp/term/?ref=footer">サイトご利用にあたって</a>
+                    </li>
+                    <li>
+                        <a href="http://info.nicovideo.jp/base/phishing.html?ref=footer">フィッシング詐欺にご注意</a>
+                    </li>
+                    <li>
+                        <a href="https://dwango.co.jp/">運営会社</a>
+                    </li>
+                </ul>
+
+                <p class="footer-link-category">お問い合わせ</p>
+                <ul class="footer-link-list">
+                    <li>
+                        <a href="https://qa.nicovideo.jp/?ref=footer">総合ヘルプ</a>
+                    </li>
+                    <li>
+                        <a href="https://qa.nicovideo.jp/faq/show/5008?site_domain=default">ご意見・ご要望</a>
+                    </li>
+                    <li>
+                        <a href="https://secure.nicovideo.jp/form/feedback_bugreport/">不具合報告</a>
+                    </li>
+                    <li>
+                        <a href="http://rcp-smile.nicovideo.jp/static/rule/">権利者法人の皆様へ</a>
+                    </li>
+                    <li>
+                        <a href="https://ch.nicovideo.jp/start?ref=footer">チャンネル開設</a>
+                    </li>
+                    <li>
+                        <a href="https://site.nicovideo.jp/sales_ads/?ref=footer">広告出稿</a>
+                    </li>
+                    <li>
+                        <a href="https://secure.nicovideo.jp/form/press">取材・プレス</a>
+                    </li>
+                    <li>
+                        <a href="https://dwango.co.jp/recruit/">採用情報</a>
+                    </li>
+                </ul>
+
+                <div class="footer-link-license">
+                    <div class="footer-link-license-list">
+                        <div class="logo NexTone-logo"></div>
+                        <p>NexTone​許諾番号<br>
+                            ID000001829</p>
+                    </div>
+                    <div class="footer-link-license-list">
+                        <div class="logo Jasrac-logo"></div>
+                        <p>JASRAC許諾番号<br>
+                            9013388001Y45123
+                    </div>
+                </div>
+
+                <small class="copyright">&copy;DWANGO Co., Ltd.</small>
+            </div>
+
+            <div class="footer-link sp-view">
+                <ul class="footer-link-list">
+                    <li><a href="https://site.nicovideo.jp/term/?ref=footer">サイトのご利用にあたって</a></li>
+                    <li><a href="https://qa.nicovideo.jp/?site_domain=default">ヘルプ</a></li>
+                    <li><a href="https://dwango.co.jp/">運営会社</a></li>
+                </ul>
+                <ul class="footer-link-list">
+                    {{# user }}
+                    {{#isPremium}}
+                    <!-- プレミアム -->
+                    <li><a href="https://www.nicovideo.jp/premium_enquete">プレミアム会員を解約</a></li>
+                    {{/isPremium}}
+                    {{^isPremium}}
+                    <!-- 一般 -->
+                    <li><a href="https://account.nicovideo.jp/unregister">ニコニコを退会</a></li>
+                    {{/isPremium}}
+                    {{/ user }}
+                    {{^ user }}
+                    <!-- 非ログイン -->
+                    <li><a href="https://account.nicovideo.jp/register/simple">新規会員登録</a></li>
+                    {{/ user }}
+                </ul>
+
+                <div class="footer-link-license">
+                    <div class="footer-link-license-list">
+                        <div class="logo NexTone-logo"></div>
+                        <p>NexTone​許諾番号 ID000001829</p>
+                    </div>
+                    <div class="footer-link-license-list">
+                        <div class="logo Jasrac-logo"></div>
+                        <p>JASRAC許諾番号 9013388001Y45123
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-logo sp-view">
+                <a href="https://sp.nicovideo.jp/">ニコニコ</a>
+            </div>
+            <small class="copyright sp-view">&copy;DWANGO Co., Ltd.</small>
+        </footer>

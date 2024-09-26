@@ -1,0 +1,37 @@
+$media-pc: 1024px;
+$media-sp: 763px;
+$media-sp-small: 480px;
+$media-sp-smaller: 375px;
+$media-sp-mini: 320px;
+
+
+
+@mixin pc {
+    @media only screen and (max-width: $media-pc) {
+        @content;
+    }
+}
+
+@mixin sp {
+    @media only screen and (max-width: $media-sp) {
+        @content;
+    }
+}
+
+@mixin sp-small {
+    @media only screen and (max-width: $media-sp-small) {
+        @content;
+    }
+}
+
+@mixin sp-smaller {
+    @media only screen and (max-width: $media-sp-smaller) {
+        @content;
+    }
+}
+
+@mixin sp-mini {
+    @media only screen and (max-width: $media-sp-mini) {
+        @content;
+    }
+}

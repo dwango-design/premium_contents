@@ -1,0 +1,161 @@
+@use 'variables';
+@use 'mediaqueries';
+
+.follow-button {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 32px;
+    margin: auto;
+    width: 320px;
+    height: 60px;
+    box-shadow: 0 0 0 6px rgb(250 250 250 / 60%);
+    border-radius: 30px;
+    z-index: 3;
+    display: none;
+
+    @include mediaqueries.sp {
+        box-shadow: none;
+        bottom: 12px;
+        width: 100vw;
+        height: 40px;
+        border-radius: 20px;
+
+        &::before {
+            display: block;
+            content: '';
+            width: 140px;
+            height: 42px;
+            background-image: url('../images/deco-follow-button-sp.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: -38px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: -1;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            width: 100vw;
+            height: 66px;
+            position: absolute;
+            left: 0;
+            bottom: -13px;
+            margin: auto;
+            background: linear-gradient(to top, rgba(244, 244, 244, 1), rgba(244, 244, 244, 0));
+            z-index: -1;
+   
+        }
+    }
+
+    @include mediaqueries.sp {
+    .btn-premium {
+            width: 260px;
+            height: 40px;
+            margin: 0 auto;
+            a {
+                .regist {
+                    font-size: 15px;
+                    transform: rotate(0.03deg); /* ジャギー防止 */
+    
+                    &::before {
+                        width: 16px;
+                        height: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-deco {
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: transform .6s ease;
+        position: absolute;
+
+        @include mediaqueries.sp {
+            display: none;
+        }
+
+        &-1 {
+            width: 63px;
+            height: 63px;
+            background-image: url('../images/deco-follow-button-tv.svg');
+            bottom: 36px;
+            left: 106px;
+            z-index: -1;
+
+            .btn-premium:hover ~ & {
+                transform: translate(-4px, -24px);
+            }
+        }
+
+        &-2 {
+            width: 37px;
+            height: 48px;
+            background-image: url('../images/deco-follow-button-namaco.svg');
+            bottom: 44px;
+            left: 170px;
+            z-index: -2;
+
+            .btn-premium:hover ~ & {
+                transform: translate(4px, -20px);
+            }
+        }
+
+        &-3 {
+            width: 44px;
+            height: 64px;
+            background-image: url('../images/deco-follow-button-left.svg');
+            bottom: -3px;
+            left: 76px;
+            z-index: -3;
+
+            .btn-premium:hover ~ & {
+                transform: translate(-18px, -66px);
+            }
+        }
+
+        &-4 {
+            width: 64px;
+            height: 44px;
+            background-image: url('../images/deco-follow-button-upper.svg');
+            bottom: 44px;
+            left: 140px;
+            z-index: -4;
+
+            .btn-premium:hover ~ & {
+                transform: translate(2px, -50px);
+            }
+        }
+
+        &-5 {
+            width: 44px;
+            height: 64px;
+            background-image: url('../images/deco-follow-button-right.svg');
+            bottom: 0px;
+            left: 190px;
+            z-index: -5;
+
+            .btn-premium:hover ~ & {
+                transform: translate(20px, -64px);
+            }
+        }
+
+        &-3,
+        &-4,
+        &-5 {
+            .btn-premium:hover ~ & {
+                filter: 
+                drop-shadow(2px 0px 0px rgba(250, 250, 250, 0.7))
+                drop-shadow(-2px 0px 0px rgba(250, 250, 250, 0.7))
+                drop-shadow(0px 2px 0px rgba(250, 250, 250, 0.7))
+                drop-shadow(0px -2px 0px rgba(250, 250, 250, 0.7));  
+            }
+        }
+    }
+}

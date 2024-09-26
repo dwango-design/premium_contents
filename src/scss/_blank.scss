@@ -1,0 +1,146 @@
+@use 'variables';
+@use 'mediaqueries';
+
+.blank {
+    height: 190px;
+    width: 100vw;
+    display: none;
+
+    @include mediaqueries.pc {/* 固定幅 */
+        max-width: 1024px;
+        width: auto;
+    }
+
+    @include mediaqueries.sp {
+        width: calc(100vw - 48px);
+    }
+
+    @include mediaqueries.sp {
+        width: calc(100vw - 24px);
+    }
+
+    &-contents {
+        background-color: #f5f5f5;
+        width: calc(100vw - 112px);
+        height: 100%;
+        margin-left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mediaqueries.pc { /* 固定幅 */
+            width: calc(100% - 76px);
+        }
+
+        @include mediaqueries.sp {
+            width: 100%;
+        }
+    }
+
+    &-attention {
+        width: 180px;
+        height: 85px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        &-icon {
+            width: 64px;
+            height: 64px;
+            background-image: url('../images/icon_attention_triangle.svg');
+            background-repeat: no-repeat;
+        }
+
+        p {
+            font-size: 12px;
+            color: #c4c4c4;
+        }
+    }
+
+    &-pickup {
+        height: 264px;
+        width: 100%;
+        background: linear-gradient(to bottom, #212121, #252525 20%, #4d4d4d);
+        position: relative;
+        display: none;
+
+        @include mediaqueries.sp-small {
+            height: 164px;
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            width: 200px;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(37, 37, 37, 1) 0%, rgba(37, 37, 37, 0.2) 32%, rgba(37, 37, 37, 0) 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+
+            @include mediaqueries.sp {
+                width: 80px;
+                background: linear-gradient(90deg, rgba(37, 37, 37, 0.5) 0%, rgba(37, 37, 37, 0.2) 50%, rgba(37, 37, 37, 0) 100%);
+            }
+
+            @include mediaqueries.sp-small {
+                width: 40px;
+                background: linear-gradient(90deg, rgba(37, 37, 37, 0.5) 0%, rgba(37, 37, 37, 0.2) 50%, rgba(37, 37, 37, 0) 100%);
+            }
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            width: 200px;
+            height: 100%;
+            background: linear-gradient(270deg, rgba(37, 37, 37, 1) 0%, rgba(37, 37, 37, 0.2) 32%, rgba(37, 37, 37, 0) 100%);
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+
+            @include mediaqueries.sp {
+                width: 80px;
+                background: linear-gradient(270deg, rgba(37, 37, 37, 0.5) 0%, rgba(37, 37, 37, 0.2) 50%, rgba(37, 37, 37, 0) 100%);
+            }
+
+            @include mediaqueries.sp-small {
+                width: 40px;
+                background: linear-gradient(270deg, rgba(37, 37, 37, 0.5) 0%, rgba(37, 37, 37, 0.2) 50%, rgba(37, 37, 37, 0) 100%);
+            }
+        }
+
+
+        &-attention {
+            width: 180px;
+            height: 85px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+            &-icon {
+                width: 64px;
+                height: 64px;
+                background-image: url('../images/icon_attention_triangle.svg');
+                -webkit-mask-image: linear-gradient(rgba(93, 93, 93, .4), rgba(93, 93, 93, .3));
+                mask-image: linear-gradient(rgba(93, 93, 93, .4), rgba(93, 93, 93, .3));
+                background-repeat: no-repeat;
+            }
+
+            p {
+                font-size: 12px;
+                color: #6a6a6a;
+            }
+        }
+    }
+}

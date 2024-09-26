@@ -1,0 +1,36 @@
+<div class="pickup loading-pickup" id="pickupBg">
+    <ul class="slider-list-pickup" id="premium-contents-pickup">
+        <script type="text/x-template" data-wktk-name="premium-contents-pickup"
+            data-wktk-selector="#premium-contents-pickup" data-wktk-id="1">
+            {{=<# #>=}}
+            {{#each items}}
+                {{#is values.flag.context '!=' 'live'}}  <!-- 動画 or キャンペーン -->
+                    <li class="slider-contents pickup-contents" data-item_id="{{itemId}}">
+                        <a href="{{values.url.url}}" class="pickup-url-format">
+                            <img src="{{values.image.url}}" alt="{{values.image.alt}}">             
+                        </a>
+                        <div class="slider-contents-title"><p>{{values.title.context}}</p></div>
+                    </li>
+                {{else}}
+                {{#is values.flag.context '==' 'live'}}  <!-- 生放送 -->
+                    <li class="slider-contents pickup-contents" data-item_id="{{itemId}}">
+                        <a href="{{values.live.content.url}}?ref=premium_contents_pickup">
+                            <img src="{{values.live.content.thumbnailUrl640x360}}" alt="{{values.live.content.title}}">
+                        </a>
+                        <div class="slider-contents-title"><p>{{values.live.content.title}}</p></div>
+                    </li>
+                {{/is}}
+            {{/is}}
+        {{/each}}
+        <#={{ }}=#>
+    </script>
+</div>
+
+    <!-- ブランクステート -->
+    <div class="blank-pickup" id="blankLimitedPickup">
+        <div class="blank-pickup-attention">
+            <div class="blank-pickup-attention-icon"></div>
+            <p>コンテンツの取得に失敗しました</p>
+        </div>
+    </div>
+</ul>

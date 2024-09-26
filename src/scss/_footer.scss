@@ -1,0 +1,353 @@
+@use 'variables';
+@use 'mediaqueries';
+
+footer {
+    background-color: variables.$niconico-black;
+    padding: 56px 32px 40px;
+    overflow-x: hidden;
+
+    @include mediaqueries.sp {
+        padding: 56px 12px 40px;
+    }
+
+    .footer {
+        &-contents {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            text-align: center;
+
+            @include mediaqueries.sp {
+                width: 340px;
+            }
+
+            @include mediaqueries.sp-mini {
+                width: 316px;
+            }
+
+            .lead {
+                color: variables.$white;
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 1.4;
+                margin-bottom: 20px;
+                transform: rotate(0.03deg); /* ジャギー防止 */
+
+                @include mediaqueries.sp {
+                    font-size: 16px;
+                }
+
+                &_small {
+                    font-size: 16px;
+
+                    @include mediaqueries.sp {
+                        font-size: 14px;
+                    }
+                }
+
+                &_underline {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &-link {
+            margin: 48px auto 0;
+            position: relative;
+            max-width: 1336px;
+            min-width: 1024px;
+            color: variables.$white;
+            font-family: Arial, Hiragino Kaku Gothic ProN, Meiryo, meiryo, sans-serif;
+            padding: 0 34px;
+
+            @include mediaqueries.pc {
+                padding: 0;
+            }
+
+            @include mediaqueries.sp {
+                margin: 36px auto 0;
+                max-width: none;
+                min-width: auto;
+                width: auto;
+                padding: 0 0 8px 0;
+                border-bottom: 1px solid #333;
+            }
+
+            &-category {
+                font-size: 12px;
+                font-weight: 500;
+
+                &:nth-child(3) {
+                    margin-top: 30px;
+                }
+            }
+
+            &-list {
+                display: flex;
+                list-style: none;
+                margin-top: 10px;
+
+                li {
+                    display: flex;
+                    align-items: center;
+
+                    a {
+                        font-size: 12px;
+                        font-weight: 300;
+                        text-decoration: none;
+                        margin-left: 12px;
+                        color: variables.$white;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+
+                        &::after {
+                            display: inline-block;
+                            content: '';
+                            width: 1px;
+                            height: 12px;
+                            background-color: #555;
+                            margin-left: 12px;
+                        }
+                    }
+
+                    &:first-child {
+                        a {
+                            margin-left: 0;
+                        }
+                    }
+
+                    &:last-child {
+                        a {
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-license {
+                position: absolute;
+                right: 24px;
+                bottom: -10px;
+
+                &-list {
+                    display: flex;
+                    align-items: center;
+
+                    &:nth-child(2) {
+                        margin-top: 8px;
+                    }
+
+                    .logo {
+                        width: 40px;
+                        height: 40px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        margin-right: 8px;
+                    }
+
+                    .NexTone-logo {
+                        background-image: url('../images/logo_nextone.png');
+                    }
+
+                    .Jasrac-logo {
+                        background-image: url('../images/logo_jasrac.png');
+                    }
+
+                    p {
+                        font-size: 10px;
+                        line-height: 1.4;
+                        color: variables.$white;
+                    }
+                }
+
+            }
+
+            &.sp-view {
+                .footer-link-list {
+                    justify-content: center;
+
+                    &:nth-child(2) {
+                        margin-top: 20px;
+                    }
+
+                    a {
+                        font-size: 14px;
+
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+
+                .footer-link-license {
+                    position: static;
+                    margin-top: 30px;
+                    width: 230px;
+                    margin: 22px auto 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    &-list {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .logo {
+                            width: 30px;
+                            height: 30px;
+                        }
+
+                        p {
+                            font-size: 11px;
+                            color: #999;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sns {
+        display: flex;
+        align-items: center;
+        margin-top: 36px;
+
+        @include mediaqueries.sp {
+            margin-top: 36px;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 20px;
+
+            @include mediaqueries.sp-smaller {
+                margin-right: 16px;
+            }
+
+            @include mediaqueries.sp-mini {
+                margin-right: 12px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+
+                @include mediaqueries.sp {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                &::before {
+                    display: block;
+                    content: '';
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+        }
+
+        &-twitter {
+            background: #1da1f2;
+
+            &::before {
+                background-image: url('../images/icon_tw.svg');
+                width: 33px;
+                height: 27px;
+
+                @include mediaqueries.sp {
+                    width: 24px;
+                    height: 20px;
+                }
+            }
+        }
+
+        &-facebook {
+            background: #225aa8;
+
+            &::before {
+                background-image: url('../images/icon_fb.svg');
+                width: 20px;
+                height: 36px;
+
+                @include mediaqueries.sp {
+                    width: 14px;
+                    height: 26px;
+                }
+            }
+        }
+
+        &-line {
+            background: #10ae14;
+
+            &::before {
+                background-image: url('../images/icon_line.svg');
+                width: 36px;
+                height: 34px;
+
+                @include mediaqueries.sp {
+                    width: 26px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+
+    .copyright {
+        display: block;
+        color: variables.$white;
+        font-family: Avenir, Lato, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, メイリオ, sans-serif;
+        font-size: 10px;
+        font-weight: 100;
+        margin-top: 40px;
+
+        &.sp-view {
+            text-align: center;
+            margin-top: 28px;
+            color: #999;
+        }
+    }
+
+    .footer-logo {
+        &.sp-view {
+            width: 120px;
+            height: 19px;
+            margin: 28px auto 0;
+            background-image: url('../images/logo_niconico.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            overflow: hidden;
+            text-indent: 100%;
+            white-space: nowrap;
+
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &.footer-premium { /* プレミアム */
+        .footer-contents .lead {
+            margin-bottom: 0;
+        }
+    }
+}

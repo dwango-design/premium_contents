@@ -1,0 +1,220 @@
+@use 'variables';
+@use 'mediaqueries';
+
+/* プレミアム会員時のユーザーステータス枠 */
+.user-status-premium {
+    width: 280px;
+    height: 70px;
+    border: 2px solid variables.$premium;
+    background-color: variables.$white;
+    border-radius: 4px;
+    opacity: 0;
+    -webkit-animation: fadeinKvShallow 1s ease forwards;
+    animation: fadeinKvShallow 1s ease forwards;
+    animation-delay: variables.$delay + 0.5s;
+
+    &-header {
+        background-color: variables.$premium;
+        height: 18px;
+        width: 100%;
+        color: variables.$white;
+        font-size: 12px;
+        transform: rotate(0.03deg); /* ジャギー防止 */
+        font-weight: 500;
+        text-align: center;
+        line-height: 18px;
+    }
+
+    &-contents {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 12px;
+        height: 52px;
+
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .user-info {
+            font-size: 12px;
+            transform: rotate(0.03deg); /* ジャギー防止 */
+            color: variables.$niconico-black;
+            width: 208px;
+            height: 34px;
+            line-height: 1.3;
+
+            .name {
+                font-size: 14px;
+                color: variables.$premium;
+                display: inline-block;
+                font-weight: 700;
+                max-width: 126px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                vertical-align: bottom;
+            }
+
+            .honor {
+                color: variables.$premium;
+                font-size: 12px;
+                transform: rotate(0.03deg); /* ジャギー防止 */
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+/* 一般会員時のユーザーステータス枠 */
+.user-status-normal {
+    padding: 8px 12px;
+    background-color: variables.$white;
+    border-radius: 4px;
+    display: flex;
+    margin-top: 14px;
+    opacity: 0;
+    -webkit-animation: fadeinKvShallow 1s ease forwards;
+    animation: fadeinKvShallow 1s ease forwards;
+    animation-delay: variables.$delay;
+
+    @include mediaqueries.sp {
+        display: none;
+    }
+
+    &-contents {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .user-info {
+            color: variables.$dark-gray;
+            font-size: 12px;
+            transform: rotate(0.03deg); /* ジャギー防止 */
+            font-weight: 500;
+            margin: 0 12px 0 8px;
+            line-height: 1.2;
+
+            .notes {
+                color: variables.$niconico-black;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            .name {
+                display: inline-block;
+                font-weight: 700;
+                max-width: 126px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                vertical-align: bottom;
+            }
+
+            .honor {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+/* プレミアム会員登録ボタン(通常) */
+.btn-premium {
+    width: 320px;
+    height: 60px;
+    background: variables.$premium;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 8px 0px rgba(46, 30, 7, .25);
+
+    &:hover {
+        background: variables.$premium-hover;
+    }
+
+    a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: variables.$white;
+        font-weight: 700;
+
+        .regist {
+            font-size: 20px;
+            transform: rotate(0.03deg); /* ジャギー防止 */
+            display: flex;
+            align-items: center;
+            text-shadow: 1px 1px 0px rgb(0 0 0 / 15%);
+
+            &::before {
+                content: '';
+                display: block;
+                width: 24px;
+                height: 26px;
+                background-image: url('../images/icon_premium_wh.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin: 3px 8px 0 0;
+            }
+        }
+    }
+
+    @include mediaqueries.sp {
+        width: 300px;
+        height: 48px;
+        border-radius: 24px;
+        box-shadow: 0px 1px 4px 0px rgba(46, 30, 7, .25);
+
+        a {
+            .regist {
+                font-size: 16px;
+
+                &::before {
+                    width: 20px;
+                    height: 24px;
+                    margin: 6px 8px 0 0;
+                }
+            }
+        }
+    }
+
+    &-small { /* プレミアム会員登録ボタン(サイズ小) */
+        width: 210px;
+        height: 40px;
+        background: variables.$premium;
+        border-radius: 20px;
+
+        a {
+            .regist {
+                font-size: 15px;
+                transform: rotate(0.03deg); /* ジャギー防止 */
+
+                &::before {
+                    width: 16px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}

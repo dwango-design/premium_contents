@@ -1,0 +1,34 @@
+<div class="minogashi-contents ranking" id="ranking">
+    <div class="slider-list-ranking_outer_hidden">
+        <div class="slider-list-ranking_outer">
+            <div class="minogashi-contents-header">
+                <h3 class="minogashi-contents-title">見逃し配信番組ランキング</h3>
+            </div>
+            <ul class="slider-list-ranking">
+                {{#minogashi_live_ranking}}
+                {{#resources}}
+                <li>
+                    <a href="{{watchUrl}}?ref=premium_contents_minogashi_ranking">
+                        <div class="slider-ranking-thumb">
+                            <p class="rank rank_{{ displayIndex }}">
+                                <span>{{ displayIndex }}</span>
+                            </p>
+                            <img src="{{#raw}}{{thumbnailHugeS640x360}}{{/raw}}" alt="{{title}}">
+                        </div>
+                    </a>
+                </li>
+                {{/resources}}
+                {{/minogashi_live_ranking}}
+            </ul>
+            <!-- ブランクステート -->
+            <div class="blank">
+                <div class="blank-contents">
+                    <div class="blank-attention">
+                        <div class="blank-attention-icon"></div>
+                        <p>コンテンツの取得に失敗しました</p>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+</div><!-- .minogashi-contents -->

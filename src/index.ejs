@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>プレミアム特典コンテンツ</title>
+    <meta name="description" content="ニコニコプレミアム会員なら、限定動画や見逃し配信番組など様々なコンテンツが視聴できる">
+    <script type="text/javascript" src="https://wktk.cdn.nimg.jp/wktkjs/3/wktk.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=NodeList.prototype.forEach%2CIntersectionObserver"></script>
+    <meta property="og:url" content="https://site.nicovideo.jp/premium_contents/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="プレミアム特典コンテンツ" />
+    <meta property="og:description" content="ニコニコプレミアム会員なら、限定動画や見逃し配信番組など様々なコンテンツが視聴できる" />
+    <meta property="og:site_name" content="ニコニコ" />
+    <meta property="og:image" content="https://site.nicovideo.jp/premium_contents/ogp.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/vnd.microsoft.icon"
+        href="https://nicovideo.cdn.nimg.jp/uni/images/favicon/favicon.ico">
+    <!-- スマホ用アイコン -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://site.nicovideo.jp/premium_contents/apple-touch-icon.png">
+
+    <!-- slickのCSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+
+    {{#user}}
+    {{#isPremium}}
+    <!-- ログインかつプレミアム -->
+    <script>
+        const id = '{{ id }}';
+        const login = 'login';
+        const member = 'premium';
+    </script>
+
+    {{/isPremium}}
+    {{^isPremium}}
+    <!-- ログインかつ一般 -->
+    <script>
+        const id = '{{ id }}';
+        const login = 'login';
+        const member = 'normal';
+    </script>
+
+    {{/isPremium}}
+    {{/user}}
+    <!-- 非ログイン -->
+    {{^user}}
+    <script>
+        const id = '';
+        const login = 'not_login';
+        const member = '';
+    </script>
+    {{/user}}
+
+    <script type="text/javascript">
+        window.NicoGoogleTagManagerDataLayer = [];
+        var data = {};
+        data.user = (function () {
+            var user = {};
+            user.user_id = id; /* ユーザーID */
+            user.login_status = login; /* ログイン状態 */
+            user.member_status = member; /* 会員種別 */
+            return user;
+        })();
+        data.content = (function () {
+            var content = {};
+            content.player_type = null;
+            content.delivery = null;
+            content.category = null;
+            content.content_type = null;
+            return content;
+        })();
+        window.NicoGoogleTagManagerDataLayer.push(data);
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'NicoGoogleTagManagerDataLayer', 'GTM-KXT7G5G');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script>
+        window.onCommonHeaderReady = function (commonHeader) {
+            commonHeader.mount('#CommonHeader', {
+                frontendId: '87',
+                site: 'premium_contents',
+                isUserInfoFetchingOnMountEnabled: true,
+
+                customization: {
+                    // isSearchEnabled: true,
+                    // search:open,
+                    size: {
+                        hPadding: '32px',
+                        minWidth: '1024px',
+                        maxWidth: '1400px'
+                    },
+
+                    userPanelLinks: [{
+                            label: 'マイリスト',
+                            href: 'https://www.nicovideo.jp/my/mylist'
+                        },
+                        {
+                            label: 'フォロー中',
+                            href: 'https://www.nicovideo.jp/my/fav/user'
+                        },
+                        {
+                            label: '動画ランキング',
+                            href: 'https://www.nicovideo.jp/ranking'
+                        },
+                        {
+                            label: '生放送ランキング',
+                            href: 'https://live.nicovideo.jp/ranking'
+                        },
+                        {
+                            label: '動画視聴履歴',
+                            href: 'https://www.nicovideo.jp/my/history'
+                        },
+                        {
+                            label: '生放送番組表',
+                            href: 'https://live.nicovideo.jp/timetable'
+                        },
+                        {
+                            label: 'プレミアムメリット',
+                            href: 'https://premium.nicovideo.jp/payment/premium_detail?sec=premium_contents_top_detail'
+                        },
+                        {
+                            label: 'プレミアム限定動画',
+                            href: 'https://anime.nicovideo.jp/special/premium-video/'
+                        },
+                    ],
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXT7G5G" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="CommonHeader"></div>
+
+    <!-- ローディング画面 -->
+    <div id="loading">
+        <div class="loading-icon"></div>
+    </div>
+
+    <header>
+        {{#user}}
+        {{#isPremium}}
+        <!-- ログインかつプレミアム -->
+        <%- include('./includes/header-premium.ejs') %>
+        {{/isPremium}}
+        {{^isPremium}}
+        <!-- ログインかつ一般 -->
+        <%- include('./includes/header-normal.ejs') %>
+        {{/isPremium}}
+        {{/user}}
+        <!-- 非ログイン -->
+        {{^user}}
+        <%- include('./includes/header-unregistered.ejs') %>
+        {{/user}}
+
+    </header>
+
+    <!-- 更新情報 -->
+    <%- include('./includes/information.ejs') %>
+    <!-- ピックアップ枠 -->
+    <%- include('./includes/pickup.ejs') %>
+
+    <!-- ログイン情報 -->
+    {{#user}}
+    {{#isPremium}}
+    <div class="login-status-premium">
+        <!-- ログインかつプレミアム -->
+        <div class="user-status-premium">
+            <div class="user-status-premium-header">
+                プレミアム会員でログイン中です
+            </div>
+            <div class="user-status-premium-contents">
+                <div class="user-icon">
+                    {{# icons }}<img src="{{ https50x50 }}" /></p>{{/ icons }}
+                </div>
+                <div class="user-info">
+                    <p class="name">{{nickname}}</p>
+                    <span class="honor">さん</span>
+                    は、このページの全コンテンツを視聴できます
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/isPremium}}
+    {{^isPremium}}
+    <div class="login-status-normal">
+        <!-- ログインかつ一般 -->
+        <div class="user-status-normal">
+            <div class="user-status-normal-contents">
+                <div class="user-icon">
+                    {{# icons }}<img src="{{ https50x50 }}" /></p>{{/ icons }}
+                </div>
+                <div class="user-info">
+                    <p class="notes">一般会員でログイン中です</p>
+                    <p class="name">{{nickname}}</p>
+                    <span class="honor">さん</span>
+                    はプレミアム会員になるとこのページの全コンテンツを視聴できます
+                </div>
+            </div>
+            <div class="btn-premium">
+                <a href="https://account.nicovideo.jp/premium/register?sec=premium_detail">
+                    <p class="regist">プレミアム会員登録</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {{/isPremium}}
+    {{/user}}
+
+    <!-- ページ内リンク -->
+    <%- include('./includes/navigation.ejs') %>
+
+    <div class="premium" id="premium">
+        <div class="premium-header outline-header">
+            <h2>プレミアム限定動画</h2>
+            <p>プレミアム会員なら見放題！</p>
+        </div>
+        <%- include('./includes/premium.ejs') %>
+    </div><!-- .premium -->
+
+
+    <div class="minogashi" id="minogashi">
+        <div class="minogashi-header outline-header">
+            <h2>見逃し配信番組</h2>
+            <p>プレミアム会員なら事前予約していなくても
+                <br class="sp-view" />
+                過去番組が視聴可能
+            </p>
+        </div>
+
+        <%- include('./includes/ranking.ejs') %>
+        <%- include('./includes/minogashi.ejs') %>
+    </div><!-- .minogashi -->
+
+    <!-- 追従ボタン -->
+    {{#user}}
+    {{^isPremium}}
+    <!-- ログインかつ一般 -->
+    <%- include('./includes/follow-button.ejs') %>
+    {{/isPremium}}
+    {{/user}}
+    <!-- 非ログイン -->
+    {{^user}}
+    <%- include('./includes/follow-button.ejs') %>
+    {{/user}}
+
+    <%- include('./includes/lower.ejs') %>
+    <%- include('./includes/footer.ejs') %>
+
+    <script>
+        WKTK.set('1', {
+            onData: function (frame) {
+                const premiumPickup = document.getElementById('premium-contents-pickup');
+                premiumPickup.classList.add('loaded');
+            }
+        });
+
+        WKTK.set('2', {
+            onData: function (frame) {
+                const premiumAnime = document.getElementById('premium-contents-limited-anime');
+                premiumAnime.classList.add('loaded');
+
+            }
+        });
+
+        WKTK.set('3', {
+            onData: function (frame) {
+                const premiumOther = document.getElementById('premium-contents-limited-other');
+                premiumOther.classList.add('loaded');
+            }
+        });
+
+        WKTK.set('4', {
+            onData: function (frame) {
+                const premiumInformation = document.getElementById('premium-contents-information');
+                premiumInformation.classList.add('loaded');
+            }
+        });
+    </script>
+</body>
+
+
+<script type="text/javascript"
+    src="https://secure-dcdn.cdn.nimg.jp/common-header/res/2.0.2/responsive/CommonHeaderLoader.min.js"></script>
+<script>
+    WKTK.init({
+        frontendId: 87,
+        tags: ['onData']
+    });
+    WKTK.fetch();
+</script>
+
+</html>

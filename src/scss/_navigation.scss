@@ -1,0 +1,133 @@
+@use 'variables';
+@use 'mediaqueries';
+
+.navigation {
+    background: variables.$light-gray;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 36px;
+    z-index: 3;
+
+    @include mediaqueries.sp {
+        top: 44px;
+    }
+
+    &-contents {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        padding-top: 4px;
+        height: 54px;
+        position: relative;
+        overflow-x: scroll;
+        -ms-overflow-style: none; /* IE, Edge */
+        scrollbar-width: none; /* Firefox */
+        &::-webkit-scrollbar { /* Chrome, Safari */
+            display: none;
+        }
+
+        ul {
+            display: flex;
+            margin: 0 60px;
+            -ms-overflow-style: none; /* IE, Edge */
+            scrollbar-width: none; /* Firefox */
+            position: relative;
+            &::-webkit-scrollbar { /* Chrome, Safari */
+                display: none;
+            }
+
+            @include mediaqueries.sp {
+                margin: 0 12px;
+            }
+
+            li {
+                height: 30px;
+                border-radius: 15px;
+                background-color: variables.$white;
+                box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, .1);
+                padding: 8px 14px;
+                box-sizing: border-box;
+                margin: 0 0 4px 8px;
+                cursor: pointer;
+
+                @include mediaqueries.sp {
+                    padding: 9px 12px;
+                }
+
+                &:first-child {
+                    margin: 0 0 4px 0;
+                }
+
+                p {
+                    font-size: 14px;
+                    font-weight: 700;
+                    white-space: nowrap;
+                    transform: rotate(0.03deg); /* ジャギー防止 */
+
+                    @include mediaqueries.sp {
+                        font-size: 12px;
+                    }
+                }
+
+                &:hover {
+                    p {
+                        color: variables.$hover-blue; 
+                    }
+                }
+            }
+        }
+
+        .navigation-btn {
+            display: none;
+            position: absolute;
+            top: calc(50% - 18px);
+            width: 32px;
+            height: 32px;
+            background-color: variables.$black;
+            border-radius: 50%;
+            font-size: 0;
+            z-index: 2;
+            cursor: pointer;
+            align-items: center;
+
+            &.nav-next {
+                left: calc(100vw - 6%);
+
+                &::before {
+                    display: block;
+                    content: '';
+                    width: 20px;
+                    height: 20px;
+                    background-image: url('../images/icon_arrow.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    transform: rotateZ(180deg);
+                    margin-left: 4px;
+                }
+            }
+
+            &.nav-prev {
+                left: 2%;
+
+                &::before {
+                    display: block;
+                    content: '';
+                    width: 20px;
+                    height: 20px;
+                    background-image: url('../images/icon_arrow.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+}
+
+#CommonHeader:not([style='position: sticky; top: 0px;']) ~ .navigation {
+    top: 0;
+}

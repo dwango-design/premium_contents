@@ -1,0 +1,67 @@
+<%
+    const minogashi = [
+        { title: '音楽', id: 'music', tktk:'music', url: 'search?keyword=%E9%9F%B3%E6%A5%BD&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_music' },
+        { title: 'アイドル', id: 'idol', tktk: 'idol', url: 'search?keyword=%E3%82%A2%E3%82%A4%E3%83%89%E3%83%AB&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_idol' },
+        { title: 'ゲーム', id: 'game', tktk: 'game', url: 'search?keyword=%E3%82%B2%E3%83%BC%E3%83%A0&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_game' },
+        { title: 'VR', id: 'vr', tktk: 'vr', url: 'search?keyword=VR&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_vr' },
+        { title: '声優', id: 'voice', tktk: 'cv', url: 'search?keyword=%E5%A3%B0%E5%84%AA&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_cv' },
+        { title: '2.5次元', id: 'musical', tktk: '2-5d', url: 'search?keyword=2.5%E6%AC%A1%E5%85%83&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_2-5d' },
+        { title: 'アニメ', id: 'anime', tktk: 'anime', url: 'search?keyword=%E3%82%A2%E3%83%8B%E3%83%A1&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_anime' },
+        { title: 'スポーツ', id: 'sports', tktk: 'sport', url: 'search?keyword=%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_sports' },
+        { title: 'ニュース', id: 'news', tktk: 'news', url: 'search?keyword=%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_news' },
+        { title: '将棋', id: 'shogi', tktk: 'shogi', url: 'search?keyword=%E5%B0%86%E6%A3%8B&status=past&sortOrder=recentDesc&providerTypes=official&isTagSearch=true', ref:'premium_contents_minogashi_shogi' },
+    ];
+%>
+
+<%　minogashi.forEach( function( value ) { %>
+<div class="minogashi-contents infinity-slider" id="<%= value.id %>">
+    <div class="slider-list_outer_hidden">
+        <div class="slider-list_outer">
+            <div class="minogashi-contents-header">
+                <h3 class="minogashi-contents-title minogashi-contents-genreName" data-genre_id="<%= value.id %>"><%= value.title %></h3>
+                <a href="https://live.nicovideo.jp/<%= value.url %>&ref=<%= value.ref %>"
+                    class="link-more pc-view">もっとみる</a>
+            </div>
+            <ul class="slider-list minogashi-slider">
+                {{# minogashi_live_<%= value.tktk %> }}
+                {{#resources}}
+                <li>
+                    <a href="{{watchUrl}}?ref=<%= value.ref %>">
+                        <span class="tag-new" data-endtime="{{liveEndTime}}"></span>
+                        <div class="slider-thumb">
+                            {{#raw}}
+                            {{# thumbnailHugeS352x198}}
+                            <img src="{{thumbnailHugeS352x198}}" alt="{{title}}" class="slider-thumb-large">
+                            {{/ thumbnailHugeS352x198}}
+                            {{^ thumbnailHugeS352x198}}
+                            <img src="{{pictureUrl}}" alt="{{title}}" class="slider-thumb-small">
+                            {{/ thumbnailHugeS352x198}}
+                            {{/raw}}
+                            <span class="timescale timescale-live" data-start="{{startTime}}"
+                                data-end="{{liveEndTime}}"></span>
+                            <span class="expired">{{#raw}}{{timeshiftExpired}}{{/raw}}</span>
+                        </div>
+                        <div class="slider-info">
+                            <p class="slider-title text-overflow">{{title}}</p>
+                        </div>
+                    </a>
+                </li>
+                {{/resources}}
+                {{/minogashi_live_<%= value.tktk %>}}
+            </ul>
+            <!-- ブランクステート -->
+            <div class="blank">
+                <div class="blank-contents">
+                    <div class="blank-attention">
+                        <div class="blank-attention-icon"></div>
+                        <p>コンテンツの取得に失敗しました</p>
+                    </div>
+                </div>   
+            </div>
+            <div class="link-more sp-view">
+                <a href="https://live.nicovideo.jp/<%= value.url %>&ref=<%= value.ref %>">もっとみる</a>
+            </div>
+        </div>
+    </div>
+</div><!-- .minogashi-contents -->
+<% })　%>

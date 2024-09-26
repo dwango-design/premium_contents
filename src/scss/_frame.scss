@@ -1,0 +1,275 @@
+@use 'variables';
+@use 'mediaqueries';
+
+/* 骨組み用 */
+.pickup {
+    background: linear-gradient(to bottom, #212121, #252525 20%, #4d4d4d);
+    padding: 18px 0 8px;
+    position: relative;
+    opacity: 1;
+
+    &.loading-pickup {
+        max-height: 170px;
+        overflow: hidden;
+        transition-property: opacity;
+        transition-duration: 1s;
+        opacity: 0;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        width: 200px;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(37, 37, 37, 1) 0%, rgba(37, 37, 37, 0.2) 32%, rgba(37, 37, 37, 0) 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        @include mediaqueries.sp {
+            width: 80px;
+            background: linear-gradient(90deg, rgba(37, 37, 37, 0.5) 0%, rgba(37, 37, 37, 0.2) 50%, rgba(37, 37, 37, 0) 100%);
+        }
+
+        @include mediaqueries.sp-small {
+            width: 40px;
+            background: linear-gradient(90deg, rgba(37, 37, 37, 0.5) 0%, rgba(37, 37, 37, 0.2) 50%, rgba(37, 37, 37, 0) 100%);
+        }
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        width: 200px;
+        height: 100%;
+        background: linear-gradient(270deg, rgba(37, 37, 37, 1) 0%, rgba(37, 37, 37, 0.2) 32%, rgba(37, 37, 37, 0) 100%);
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+
+        @include mediaqueries.sp {
+            width: 80px;
+            background: linear-gradient(270deg, rgba(37, 37, 37, 0.5) 0%, rgba(37, 37, 37, 0.2) 50%, rgba(37, 37, 37, 0) 100%);
+        }
+
+        @include mediaqueries.sp-small {
+            width: 40px;
+            background: linear-gradient(270deg, rgba(37, 37, 37, 0.5) 0%, rgba(37, 37, 37, 0.2) 50%, rgba(37, 37, 37, 0) 100%);
+        }
+    }
+}
+
+.premium,
+.minogashi {
+    overflow-x: hidden;
+
+    .outline-header {
+        h2 {
+            width: 252px;
+            font-size: 26px;
+            text-align: center;
+            letter-spacing: 2px;
+            margin: 52px auto 0;
+
+            @include mediaqueries.sp {
+                font-size: 24px;
+                margin: 56px auto 0;
+            }
+
+            @include mediaqueries.sp-small {
+                font-size: 20px;
+                margin: 32px auto 0;
+                width: 200px;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: variables.$black;
+                margin-top: 4px;
+            }
+        }
+
+        p {
+            font-size: 14px;
+            font-family: Arial, Hiragino Kaku Gothic ProN, Meiryo, meiryo, sans-serif;
+            line-height: 1.4;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 8px;
+
+            @include mediaqueries.sp {
+                margin-top: 6px;
+            }
+
+            @include mediaqueries.sp-small {
+                font-size: 12px;
+            }
+        }
+
+        &.minogashi-header {
+            h2 {
+                width: 200px;
+            }
+        }
+    }
+
+    &-contents {
+        margin-top: 38px;
+        height: 240px;
+        overflow: hidden;
+
+        &.ranking {
+            height: 260px;
+        }
+
+        @include mediaqueries.sp {
+            height: auto;
+
+            &.ranking {
+                height: auto;
+            }
+        }
+
+        &:nth-child(2) {
+            margin-top: 12px;
+
+            @include mediaqueries.sp-small {
+                margin-top: 24px;
+            }
+        }
+
+        &-title {
+            font-size: 22px;
+
+            @include mediaqueries.sp-small {
+                font-size: 16px;
+            }
+        }
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-flow: row nowrap;
+            padding-bottom: 12px;
+            width: calc(100vw - 112px);
+
+            @include mediaqueries.pc {
+                width: auto;
+                padding-right: 112px;
+            }
+
+            @include mediaqueries.sp {
+                width: calc(100vw - 48px);
+                justify-content: flex-start;
+                padding-right: 0;
+            }
+
+            @include mediaqueries.sp-small {
+                width: calc(100vw - 24px);
+            }
+        }
+
+        .link-more {
+            display: flex;
+            align-items: center;
+            color: variables.$niconico-black;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transform: rotate(0.03deg); /* ジャギー防止 */
+
+            &::before {
+                display: block;
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 4px 0 4px 6px;
+                border-color: transparent transparent transparent #3e3e3e;
+                margin-right: 4px;
+            }
+
+            &:hover {
+                color: variables.$hover-blue;
+
+                &::before {
+                    border-color: transparent transparent transparent variables.$hover-blue;
+                }
+            }
+
+            &.sp-view {
+                width: 240px;
+                height: 38px;
+                border-radius: 19px;
+                border: 2px solid #ddd;
+                background-color: variables.$white;
+                margin: 24px auto 0;
+
+                &::before {
+                    display: none;
+                }
+
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    line-height: 38px;
+                    text-decoration: none;
+                    color: variables.$niconico-black;
+                    text-align: center;
+                }
+
+                &:hover {
+                    border: 2px solid variables.$hover-blue;
+
+                    a {
+                        color: variables.$hover-blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.minogashi {
+    &-contents {
+        &:nth-child(2) {
+            @include mediaqueries.sp {
+                margin-top: 24px;
+            }
+        }
+    }
+}
+
+.minogashi .outline-header h2 {
+    @include mediaqueries.sp {
+        margin-top: 68px;
+        width: 186px !important;
+    }
+
+    @include mediaqueries.sp-small {
+        margin-top: 48px;
+        width: 160px !important;
+    }
+}
+
+@supports (-ms-ime-align:auto) { /* Edge */
+    .premium .outline-header p,
+    .minogashi .outline-header p {
+        font-family: Arial, Hiragino Kaku Gothic ProN, Meiryo, meiryo, sans-serif;
+    }
+}
+
+/* Edge 2(Chromium) ※現在のバージョンでは無効 */
+_:lang(x)::-ms-,
+.premium .outline-header p,
+.minogashi .outline-header p {
+    font-family: Arial, Hiragino Kaku Gothic ProN, Meiryo, meiryo, sans-serif;
+}

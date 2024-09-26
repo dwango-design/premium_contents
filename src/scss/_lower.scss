@@ -1,0 +1,45 @@
+@use 'mediaqueries';
+
+.lower {
+    min-width: 1024px;
+    overflow-x: hidden;
+    margin-top: 60px;
+
+    @include mediaqueries.sp {
+        min-width: auto;
+    }
+
+    @include mediaqueries.sp-small {
+        margin-top: 42px;
+    }
+
+    &-caution {
+        font-size: 13px;
+        transform: rotate(0.03deg); /* ジャギー防止 */
+        text-align: center;
+
+        @include mediaqueries.sp {
+            font-size: 11px;
+            line-height: 1.2rem;
+        }
+    }
+
+    &-inner {
+        height: 282px;
+        padding: 0 253px;
+        background-image: url('../images/bg_comment.svg');
+        background-repeat: no-repeat;
+        background-position: center 16px;
+
+        @include mediaqueries.sp {
+            height: 132px;
+            background-size: cover;
+            background-position: center 4px;
+        }
+
+        &-contents {
+            width: 1024px;
+            margin: 0 auto;
+        }
+    }
+}

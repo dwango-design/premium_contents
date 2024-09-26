@@ -1,0 +1,11 @@
+@use 'variables';
+
+#CommonHeader {
+    position: relative;
+    width: 100%;
+    min-height: 36px; /* PCまたはレスポンシブの場合 36px */
+    z-index: 100000; /* 各サービスで適切な重なり順になるようにこの要素に z-index を指定してください。auto以外の値が必須です */
+    margin: 0;
+    padding: 0;
+    background-color: variables.$niconico-black;
+  }

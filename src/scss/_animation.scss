@@ -1,0 +1,63 @@
+/* KV */
+@-webkit-keyframes fadeinKv {
+  0% {opacity: 0;transform: translate(0, 50px);}
+  50% {opacity: 0;transform: translate(0, 50px);}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeinKv {
+  0% {opacity: 0;transform: translate(0, 50px);}
+  50% {opacity: 0;transform: translate(0, 50px);}
+  100% {opacity: 1;}
+}
+
+@-webkit-keyframes fadeinKvShallow {
+  0% {opacity: 0;transform: translate(0, 20px);}
+  50% {opacity: 0;transform: translate(0, 20px);}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeinKvShallow {
+  0% {opacity: 0;transform: translate(0, 20px);}
+  50% {opacity: 0;transform: translate(0, 20px);}
+  100% {opacity: 1;}
+}
+
+/* 吹き出し */
+@-webkit-keyframes boingBubble {
+    0% {opacity: 1;transform: scale(0.4, 0.4);}
+    40% {opacity: 1;transform: scale(1.2, 1.2);}
+    60% {opacity: 1;transform: scale(1, 1);}
+    80% {opacity: 1;transform: scale(1.1, 1.1);}
+    100% {opacity: 1;transform: scale(1, 1); }
+}
+
+@keyframes boingBubble {
+    0% {opacity: 1;transform: scale(0.4, 0.4);}
+    40% {opacity: 1;transform: scale(1.2, 1.2);}
+    60% {opacity: 1;transform: scale(1, 1);}
+    80% {opacity: 1;transform: scale(1.1, 1.1);}
+    100% {opacity: 1;transform: scale(1, 1); }
+}
+
+/* opacity0 → 100 */
+@-webkit-keyframes appearance {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes appearance {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* マーキー */
+@-webkit-keyframes marquee {
+  0% { left: 100%; transform: translate(0);}
+  100% { left: 0; transform: translate(-100%);}
+}
+
+@keyframes marquee {
+  0% { left: 100%; transform: translate(0);}
+  100% { left: 0; transform: translate(-100%);}
+}

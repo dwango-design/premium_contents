@@ -1,0 +1,497 @@
+@use 'variables';
+@use 'mediaqueries';
+
+header {
+    background-color: variables.$bg-premium;
+    width: 100%;
+    height: 100%;
+
+    @include mediaqueries.sp {
+        overflow: hidden;
+    }
+
+    .premium-header {
+        width: 100%;
+        padding: 10px 0;
+        position: relative;
+        z-index: 0;
+
+        @include mediaqueries.sp {
+            padding: 0;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            background-image: url('../images/bg_kv_premium_left.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 130px;
+            height: 90px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            opacity: 0;
+            -webkit-animation: appearance 1.8s ease forwards;
+            animation: appearance 1.8s ease forwards;
+            animation-delay: variables.$delay + 2s;
+
+            @include mediaqueries.sp {
+                display: none;
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            background-image: url('../images/bg_kv_premium_right.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 130px;
+            height: 90px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            opacity: 0;
+            -webkit-animation: appearance 1.8s ease forwards;
+            animation: appearance 1.8s ease forwards;
+            animation-delay: variables.$delay + 2s;
+
+            @include mediaqueries.sp {
+                display: none;
+            }
+        }
+
+        &-contents {
+            max-width: 992px;
+            height: 70px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+
+            @include mediaqueries.sp {
+                height: 60px;
+            }
+
+            &-kv {
+                position: relative;
+                width: 664px;
+
+                @include mediaqueries.sp {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .logo {
+                    width: 396px;
+                    height: 48px;
+                    background-image: url('../images/logo_kv_premium.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    overflow: hidden;
+                    text-indent: 100%;
+                    white-space: nowrap;
+                    display: inline-block;
+                    opacity: 0;
+                    -webkit-animation: fadeinKvShallow 1s ease forwards;
+                    animation: fadeinKvShallow 1s ease forwards;
+                    animation-delay: variables.$delay + 0.5s;
+
+                    @include mediaqueries.sp {
+                        background-image: url('../images/logo_kv_premium-sp.svg');
+                        background-position: center;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                        width: 294px;
+                        height: 42px;
+                    }
+                }
+
+                .kv {
+                    width: 252px;
+                    height: 64px;
+                    background-image: url('../images/deco_kv_premium_pc.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    right: 0;
+                    bottom: -14px;
+                    opacity: 0;
+                    -webkit-animation: fadeinKvShallow 1s ease forwards;
+                    animation: fadeinKvShallow 1s ease forwards;
+                    animation-delay: variables.$delay + 0.5s;
+
+                    @include mediaqueries.sp {
+                        display: none;
+                    }
+
+                    &-limited-video {
+                        width: 100px;
+                        height: 38px;
+                        background-image: url('../images/deco_kv_balloon_limited_video_left.svg');
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        overflow: hidden;
+                        text-indent: 100%;
+                        white-space: nowrap;
+                        display: inline-block;
+                        position: absolute;
+                        top: -10px;
+                        left: 52px;
+                        opacity: 0;
+                        -webkit-animation: boingBubble 0.5s ease-out forwards;
+                        animation: boingBubble 0.5s ease-out forwards;
+                        transform-origin: 50% 50%;
+                        animation-delay: variables.$delay + 1s;
+                    }
+
+                    &-minogashi {
+                        width: 100px;
+                        height: 38px;
+                        background-image: url('../images/deco_kv_balloon_minogashi.svg');
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        overflow: hidden;
+                        text-indent: 100%;
+                        white-space: nowrap;
+                        display: inline-block;
+                        position: absolute;
+                        right: -28px;
+                        top: -10px;
+                        opacity: 0;
+                        -webkit-animation: boingBubble 0.5s ease-out forwards;
+                        animation: boingBubble 0.5s ease-out forwards;
+                        transform-origin: 50% 50%;
+                        animation-delay: variables.$delay + 1.5s;
+                    }
+                }
+            }
+
+            .user-status-premium {
+                @include mediaqueries.sp {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .normal-header {
+        width: 100%;
+        height: 424px;
+        position: relative;
+        padding: 20px 0;
+        z-index: 0;
+        box-sizing: border-box;
+
+        @include mediaqueries.sp {
+            height: 200px;
+            padding: 16px 0;
+        }
+
+        &.unregistered {
+            @include mediaqueries.sp {
+                height: 254px;
+
+                &::before,
+                &::after {
+                    display: none;
+                }
+
+                .normal-header-contents {
+                    &::before {
+                        content: '';
+                        display: block;
+                        background-image: url('../images/bg_kv_unregistered_left_sp.svg');
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 220px;
+                        height: 254px;
+                        position: absolute;
+                        left: -224px;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        background-image: url('../images/bg_kv_unregistered_right_sp.svg');
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position-x: right;
+                        width: 220px;
+                        height: 254px;
+                        position: absolute;
+                        right: -224px;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            background-image: url('../images/bg_kv_normal_left.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 220px;
+            height: 424px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            opacity: 0;
+            -webkit-animation: appearance 1.8s ease forwards;
+            animation: appearance 1.8s ease forwards;
+            animation-delay: variables.$delay + 2s;
+
+            @include mediaqueries.sp {
+                display: none;
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            background-image: url('../images/bg_kv_normal_right.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 220px;
+            height: 424px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            opacity: 0;
+            -webkit-animation: appearance 1.8s ease forwards;
+            animation: appearance 1.8s ease forwards;
+            animation-delay: variables.$delay + 2s;
+
+            @include mediaqueries.sp {
+                display: none;
+            }
+        }
+
+        &-contents {
+            width: 920px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+
+            @include mediaqueries.sp {
+                width: 316px;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    background-image: url('../images/bg_kv_normal_left_sp.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 220px;
+                    height: 200px;
+                    position: absolute;
+                    left: -224px;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    background-image: url('../images/bg_kv_normal_right_sp.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position-x: right;
+                    width: 220px;
+                    height: 200px;
+                    position: absolute;
+                    right: -224px;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                }
+            }
+
+            .logo {
+                width: 630px;
+                height: 84px;
+                background-image: url('../images/logo_kv_normal.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                overflow: hidden;
+                text-indent: 100%;
+                white-space: nowrap;
+                display: inline-block;
+                opacity: 0;
+                -webkit-animation: fadeinKv 1s ease forwards;
+                animation: fadeinKv 1s ease forwards;
+                animation-delay: variables.$delay + 1.6s;
+
+                @include mediaqueries.sp {
+                    width: 100%;
+                    height: 44px;
+                    background-image: url('../images/logo_kv_normal-sp.svg');
+                    background-position: center;
+                }
+            }
+
+            .kv {
+                width: 886px;
+                height: 194px;
+                background-image: url('../images/deco_kv_normal_pc.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-top: 16px;
+                position: relative;
+                opacity: 0;
+                -webkit-animation: fadeinKv 1s ease forwards;
+                animation: fadeinKv 1s ease forwards;
+                animation-delay: variables.$delay;
+
+                @include mediaqueries.sp {
+                    width: 316px;
+                    height: 126px;
+                    background-image: url('../images/deco_kv_normal_sp.svg');
+                    margin-top: 8px;
+                }
+
+                &-limited-video {
+                    width: 182px;
+                    height: 68px;
+                    background-image: url('../images/deco_kv_balloon_limited_video_right.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    overflow: hidden;
+                    text-indent: 100%;
+                    white-space: nowrap;
+                    display: inline-block;
+                    position: absolute;
+                    top: 104px;
+                    left: 172px;
+                    opacity: 0;
+                    -webkit-animation: boingBubble 0.5s ease-out forwards;
+                    animation: boingBubble 0.5s ease-out forwards;
+                    transform-origin: 50% 50%;
+                    animation-delay: variables.$delay + 1.5s;
+
+                    @include mediaqueries.sp {
+                        width: 112px;
+                        height: 44px;
+                        left: 0;
+                        top: 80px;
+                    }
+                }
+
+                &-minogashi {
+                    width: 200px;
+                    height: 66px;
+                    background-image: url('../images/deco_kv_balloon_minogashi_left.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    overflow: hidden;
+                    text-indent: 100%;
+                    white-space: nowrap;
+                    display: inline-block;
+                    position: absolute;
+                    right: 163px;
+                    top: 18px;
+                    opacity: 0;
+                    -webkit-animation: boingBubble 0.5s ease-out forwards;
+                    animation: boingBubble 0.5s ease-out forwards;
+                    transform-origin: 50% 50%;
+                    animation-delay: variables.$delay + 1s;
+
+                    @include mediaqueries.sp {
+                        width: 124px;
+                        height: 44px;
+                        right: 0;
+                        top: -4px;
+                    }
+                }
+            }
+
+            .link-premium-detail {
+                font-size: 12px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: variables.$niconico-black;
+                margin-top: 12px;
+                opacity: 0;
+                -webkit-animation: appearance 1.4s ease forwards;
+                animation: appearance 1.4s ease forwards;
+                animation-delay: variables.$delay + 2s;
+                transform: rotate(0.03deg); /* ジャギー防止 */
+
+
+                @include mediaqueries.sp {
+                    display: none;
+                }
+
+                &::before {
+                    display: block;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 4px 0 4px 6px;
+                    border-color: transparent transparent transparent #3e3e3e;
+                    margin-right: 4px;
+                }
+
+                &:hover {
+                    color: variables.$hover-blue;
+
+                    &::before {
+                        border-color: transparent transparent transparent variables.$hover-blue;
+                    }
+                }
+            }
+
+            .btn-premium.unregistered {
+                margin-top: 12px;
+                opacity: 0;
+                -webkit-animation: appearance 1.4s ease forwards;
+                animation: appearance 1.4s ease forwards;
+                animation-delay: variables.$delay + 2s;
+
+                @include mediaqueries.sp {
+                    width: 260px;
+                    height: 48px;
+                    margin-top: 2px;
+
+                    .regist {
+                        font-size: 16px;
+
+                        &::before {
+                            width: 22px;
+                            height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

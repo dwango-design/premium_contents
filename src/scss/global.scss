@@ -1,0 +1,52 @@
+@use 'reset';
+@use 'mediaqueries';
+@use 'variables';
+@use 'slider';
+@use 'footer';
+@use 'loading';
+@use 'lower';
+@use 'frame';
+@use 'information';
+@use 'commonHeader';
+@use 'navigation';
+@use 'parts';
+@use 'header';
+@use 'loginStatus';
+@use 'animation';
+@use 'followButton';
+@use 'blank';
+
+body {
+    background: variables.$light-gray;
+    color: variables.$niconico-black;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    min-width: 1024px; /*764まで*/
+
+    @media screen and (min-width: 1025px) {
+        min-width: auto;
+    }
+
+    @include mediaqueries.sp {
+        min-width: auto;
+    }
+
+    *:focus {
+        outline: none;
+    }
+}
+
+.pc-view {
+    display: block;
+
+    @include mediaqueries.sp {
+        display: none !important;
+    }
+}
+
+.sp-view {
+    display: none !important;
+
+    @include mediaqueries.sp {
+        display: block !important;
+    }
+}
